@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel ="stylesheet" href="test.css">
+</head>
+<body>
+
+<h1>Demo functions: split, trim, map, slice, toUpper/LowerCase, CharAt()</h1>
+
+<input type="text" id="fullname" placeholder="Фамилия, Имя,Отчество">
+
+<input type="text" id="lastname">
+<input type="text" id="firstname"> 
+<input type="text" id="middlename">
+
+    <script>
+        
+        document.getElementById("fullname").addEventListener ('change',doThing);
+        
+        function doThing(){
+            const fullname=document.getElementById("fullname").value.trim().toLowerCase();
+    
+            const arr = fullname.split(" ")
+                                .map(fullname=>fullname.charAt(0).toUpperCase()+fullname.slice(1));
+
+            document.getElementById("lastname").value =arr[0];
+            document.getElementById("firstname").value =arr[1];
+            document.getElementById("middlename").value =arr[2];
+       
+        }             
+
+    </script>
+    
+</body>
+</html>
